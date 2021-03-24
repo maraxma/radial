@@ -1,0 +1,11 @@
+/.settings/
+/target/
+/logs/
+/log/
+.classpath
+.project
+/.idea/
+*.iml
+/bin/
+/.apt_generated/
+/.apt_generated_tests/
