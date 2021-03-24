@@ -66,7 +66,7 @@ radial:
 - 当使用可切换数据源（@EnableSwitchableDataSource）时：使用@UseDataSource注解。该注解能用在方法和成员变量上。使用@UseDataSource("XXX")来指定你的数据源。
 - 当使用多数据源（@EnableMultiDataSource）时：使用@UseDataSource、@Resource。@UseDataSource注解只能用在成员变量上，在这种情况下它等同于@Resource(name = "XXX")。在成员变量上使用@UseDataSource("XXX")或者@Resource(name= "XX")来指定你的数据源，在方法上使用它将没有任何效果。
 
-"XX"代表数据源名称。数据源名称是你配置的名称前面附加"dataSource_"，如"dataSource_NEWSQL"。
+"XX"代表数据源名称。数据源名称是你配置的名称前面附加"dataSource_"，如"dataSource_DS2"。
 
 
 5、开始在代码中使用
@@ -84,7 +84,7 @@ public Map<String, Object> findPeople(int id) {
 private SwitchableDataSource dataSource;
 
 // 如需在运行时获得指定数据源：（可切换数据源专有用法）
-dataSource.getDataSource("dataSource_NEWSQL").XXXX();
+dataSource.getDataSource("dataSource_DS3").XXXX();
 
 // 如果需要直接指定某个数据源给成员变量（自动注入，时候不要再使用@Autowired或者@Resource）
 @UseDataSource("dataSource_DS2")
@@ -106,7 +106,7 @@ public interface UserMapper {
 ```java
 // MyServiceImpl.java
 @Override
-@UseDataSource("dataSource_MKTPLS")
+@UseDataSource("dataSource_DS3")
 @Transactional
 public void update() {
     // 业务逻辑，支持跨数据源的事务
@@ -142,7 +142,7 @@ public void update() {
 // MyMapper.java (interface)
 @Mapper
 public interface TestMapper {
-	@UseDataSource("dataSource_HisQuery") void insert(String text);
+	@UseDataSource("dataSource_DS8") void insert(String text);
 }
 ```
 
